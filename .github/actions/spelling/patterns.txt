@@ -1,0 +1,258 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+"(?:data|id|signature)":\s*"[-+/=:\w]+"
+
+\b[0-9a-f]{12,}\b
+
+"name": "\w+-[-.\w]+"
+
+"toolu_\w+"
+
+^\s*contact: [-\w]+$
+
+# Flags
+\s-D(?=[a-df-z])
+
+^data: \{.*\}$
+
+starts_with\("[-\w,.:;/=]{3,}"
+
+Some\(\("\w+",
+
+\*\*Authors:\*\*.*
+
+\s\d\w{10,}\b
+
+aws_secret_key = '.*?'
+
+/Users/\w+
+
+toBe\('.*?'
+
+CLIENT_ID: &str = "\w+"
+
+^\s*"E[\w/]{5,}"$
+
+REST(?=[a-z])
+
+\bteam_\w+
+
+assert_eq!\(.*\)
+
+# url protocols
+^\s+'[-a-z]+:'
+
+# LinkedIn
+\[\w+ \w+\]\((?=https://www\.linkedin\.com)
+
+# Automatically suggested patterns
+
+# hit-count: 1416 file-count: 327
+# https/http/file urls
+(?:\b(?:goose|https?|ftp|file)://)[-A-Za-z0-9+&@#/*%?=~_|!:,.;]+[-A-Za-z0-9+&@#/*%=~_|]
+
+# hit-count: 403 file-count: 54
+# printf markers
+(?<!\\)\\(?:n(?!ode)|\\r(?=[a-df-z])|t)(?=[a-z]{2,})
+
+# hit-count: 99 file-count: 44
+# URL escaped characters
+%[0-9A-F][A-F](?=[A-Za-z])
+
+# hit-count: 88 file-count: 30
+# GitHub actions
+\buses:\s+(['"]?)[-\w.]+/[-\w./]+@[-\w.]+\g{-1}
+
+# hit-count: 70 file-count: 28
+# hex digits including css/html color classes
+(?:[\\0][xX]|\\u\{?|[uU]\+|#x?|%23|&H)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
+
+# hit-count: 65 file-count: 18
+# Library prefix
+# e.g., `lib`+`archive`, `lib`+`raw`, `lib`+`unwind`
+# (ignores some words that happen to start with `lib`)
+(?:\b|_)[Ll]ib(?!era[lt])(?:re(?=office)|era|)(?!ero|erty|rar(?:i(?:an|es)|y))(?=[a-z])
+
+# hit-count: 50 file-count: 11
+# Markdown anchor links
+\(#\S*?[a-zA-Z]\S*?\)
+
+# hit-count: 42 file-count: 41
+# node packages
+(["'])@[^/'" ]+/[^/'" ]+\g{-1}
+
+# hit-count: 39 file-count: 29
+# imports
+^import\s+(?:(?:static|type)\s+|)(?:[\w.]|\{\s*\w*?(?:,\s*(?:\w*|\*))+\s*\})+(?:\s+from (['"]).*?\g{-1}|)
+
+# hit-count: 32 file-count: 1
+# unicode escaped characters (4)
+\\u[0-9a-fA-F]{4}
+
+# hit-count: 28 file-count: 24
+# css fonts
+\bfont(?:-family(?:[-\w+]*)|):[^;}]+
+
+# hit-count: 26 file-count: 5
+# regex choice
+\((?:\?:|)[^)|]+(?<! )\|(?!(?:jq|xargs)\b)[^)| ][^)]*\)
+
+# hit-count: 24 file-count: 5
+# css url wrappings
+\burl\([^)]+\)
+
+# hit-count: 19 file-count: 16
+# hex runs
+\b(?=(?:[a-fA-F]{0,2}\d)*[a-fA-F]{3})[0-9a-fA-F]{16,}\b
+
+# hit-count: 17 file-count: 6
+# Contributor
+\[[^\]]+\]\(https://github\.com/[^/\s"]+/?\)
+
+# hit-count: 15 file-count: 3
+# golang regular expression
+(?<!")\br".+?"
+
+# hit-count: 13 file-count: 1
+# kubernetes crd patterns
+^\s*pattern: .*$
+
+# hit-count: 12 file-count: 6
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 12 file-count: 5
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!['"])\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)['"](?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 11 file-count: 7
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 11 file-count: 6
+# bearer auth
+\b[Bb]ear[e][r]:? [-a-zA-Z=;:/0-9+.]{3,}
+
+# hit-count: 9 file-count: 7
+# curl arguments
+\b(?:\\n|)curl(?:\.exe|)(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+# hit-count: 8 file-count: 8
+# set arguments
+\b(?:bash|(?<!\.)sh|set)(?:\s+[-+][abefimouxE]{1,2})*\s+[-+][abefimouxE]{3,}(?:\s+[-+][abefimouxE]+)*
+
+# hit-count: 8 file-count: 5
+# bearer auth
+(['"])[Bb]ear[e][r] .{3,}?\g{-1}
+
+# hit-count: 7 file-count: 4
+# Non-English
+# Even repositories expecting pure English content can unintentionally have Non-English content... People will occasionally mistakenly enter [homoglyphs](https://en.wikipedia.org/wiki/Homoglyph) which are essentially typos, and using this pattern will mean check-spelling will not complain about them.
+# .
+# If the content to be checked should be written in English and the only Non-English items will be people's names, then you can consider adding this.
+# .
+# Alternatively, if you're using check-spelling v0.0.25+, and you would like to _check_ the Non-English content for spelling errors, you can. For information on how to do so, see:
+# https://docs.check-spelling.dev/Feature:-Configurable-word-characters.html#unicode
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+
+# hit-count: 6 file-count: 2
+# Google Cloud regions
+(?:us|(?:north|south)america|europe|asia|australia|me|africa)-(?:north|south|east|west|central){1,2}\d+
+
+# hit-count: 3 file-count: 3
+# Dataframes / NumPy
+\b(?:df|np)\.\w{3,}
+
+# hit-count: 3 file-count: 3
+# sed regular expressions
+sed 's/(?:[^/]*?[a-zA-Z]{3,}[^/]*?/){2}
+
+# hit-count: 3 file-count: 3
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:\s-C \S+|(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# hit-count: 3 file-count: 2
+# container images
+image: [-\w./:@]+
+
+# hit-count: 2 file-count: 2
+# Docker images
+^\s*(?i)FROM\s+\S+:\S+(?:\s+AS\s+\S+|)
+
+# hit-count: 2 file-count: 2
+# javascript match regex
+\.match\(/[^/\s"]{3,}/[gim]*\s*
+
+# hit-count: 1 file-count: 1
+# file permissions
+(?:^|['"`\s])(?!-+\s)[-bcdLlpsw](?:[-r][-w][-Ssx]){2}[-r][-w][-SsTtx]\+?['"`\s]
+
+# hit-count: 1 file-count: 1
+# sha
+sha\d+:[0-9a-f]*?[a-f]{3,}[0-9a-f]*
+
+# hit-count: 1 file-count: 1
+# JavaScript regular expressions
+# javascript exec/test regex
+/.{3,}?/[gim]*\.(?:exec|test)\(
+
+# hit-count: 1 file-count: 1
+# javascript replace regex
+\.replace\(/[^/\s"]{3,}/[gim]*\s*,
+
+# hit-count: 1 file-count: 1
+# assign regex
+= /[^*].*?(?:[a-z]{3,}|[A-Z]{3,}|[A-Z][a-z]{2,}).*/[gim]*(?=\W|$)
+
+# hit-count: 1 file-count: 1
+# posthog secrets
+([`'"])phc_[^"',]+\g{-1}
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b(?:(?:[Ll]og(?:g(?=[a-z])|)|[Ss]ign)(?:ed|ing)?) in to\b
+
+# to opt in
+\bto opt in\b
+
+# pass(ed|ing) in
+\bpass(?:ed|ing) in\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-SsTtx]){3}[\.+*]?\s+\d+\s+\S+\s+\S+\s+[.\d]+(?:[KMGT]|)\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(auto|await|buffalo|center|div|inherit|long|LONG|none|normal|solid|thin|transparent|very)(?:\s\g{-1})+\s
+# C enum and struct
+\b(?:enum|struct)\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|inject|json|yaml):
+# doxygen / javadoc / .net
+(?:[\\@](?:brief|defgroup|groupname|link|t?param|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+(?:static|override|readonly|required|virtual))*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
+# C# getter/setter
+\s(\w+)\s+\g{-1}\s*\{\s*[gs]et;
+
+# macOS file path
+(?:Contents\W+|(?!iOS)/)MacOS\b
+
+# Python package registry has incorrect spelling for macOS / Mac OS X
+"Operating System :: MacOS :: MacOS X"
+
+# "company" in Germany
+\bGmbH\b
+
+# IntelliJ
+\bIntelliJ\b
+
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
