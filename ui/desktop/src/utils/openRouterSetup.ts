@@ -1,4 +1,4 @@
-import { startOpenrouterSetup } from '../api';
+import { startOpenRouterSetup } from '../api';
 
 export interface OpenRouterSetupStatus {
   isRunning: boolean;
@@ -7,11 +7,11 @@ export interface OpenRouterSetupStatus {
 
 export async function startOpenRouterSetup(): Promise<{ success: boolean; message: string }> {
   try {
-    return (await startOpenrouterSetup({ throwOnError: true })).data;
+    return (await startOpenRouterSetup({ throwOnError: true })).data;
   } catch (e) {
     return {
       success: false,
-      message: `Failed to start Openrouter setup ['${e}]`,
+      message: `Failed to start OpenRouter setup ['${e}]`,
     };
   }
 }
