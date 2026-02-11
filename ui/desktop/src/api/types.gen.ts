@@ -2778,18 +2778,18 @@ export type TranscribeDictationResponses = {
 
 export type TranscribeDictationResponse = TranscribeDictationResponses[keyof TranscribeDictationResponses];
 
-export type StartOpenrouterSetupData = {
+export type StartOpenRouterSetupData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/handle_openrouter';
 };
 
-export type StartOpenrouterSetupResponses = {
+export type StartOpenRouterSetupResponses = {
     200: SetupResponse;
 };
 
-export type StartOpenrouterSetupResponse = StartOpenrouterSetupResponses[keyof StartOpenrouterSetupResponses];
+export type StartOpenRouterSetupResponse = StartOpenRouterSetupResponses[keyof StartOpenRouterSetupResponses];
 
 export type StartTetrateSetupData = {
     body?: never;
